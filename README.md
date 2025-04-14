@@ -34,3 +34,7 @@ python perform-kadai.py -m 'LLM model' -s 'System Prompt File' 'User Prompt File
 - [iizuka-norishige](https://github.com/iizuka-norishige)
 
 <!-- CREATED_BY_LEADYOU_README_GENERATOR -->
+
+## License
+
+The Blueprint is open-sourced software licensed under the [MIT license](https://choosealicense.com/licenses/mit/)
