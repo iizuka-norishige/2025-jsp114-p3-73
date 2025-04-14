@@ -7,7 +7,7 @@
 - **perform-kadai.py** : 課題検討を実行するコード
 - **mk-command.py** : `perform-kadai.py` を連続的に実行するためのコマンドリストを作成するコード
 - **perform-stepbystep.sh** : `mk-command.py` で作成したコマンドリストを１行ずつ実行するコード
-- **Modelfile.md** : OllamaにLLMモデルを設定する際に利用したMODELFILEのテンプレート
+- **Modelfile** : OllamaにLLMモデルを設定する際に利用したMODELFILEのテンプレート
 
 <!-- # Badges -->
 
