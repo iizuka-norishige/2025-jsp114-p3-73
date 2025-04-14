@@ -1,14 +1,13 @@
 # コマンド作成コード
 
 hardware = ["mac", "mouse"]
-# hardware = ["mac", "pw", "mouse", "copilot"]
 modelollama = ["phi4:latest", "phi4:mini", "llama3-elyza:8b", "gemma3:12b", "gemma3:4b", "gemma3:1b"]
 modelfname = "phi4_latest" #filenameに挿入するため、:を_に置換した名前
 nkadai = range(1,5) #kadaiの数
 sp = range(1,2) #spの数 #system prompt
 up = range(1,6) #kadai-1..3のup #user prompt
 up2 = range(1,11) #kadai-4のup
-dir = "./kadai-mac/"
+dir = "./kadai-mac/" #kadaiを置いているディレクトリの指定
 
 for hw in hardware:
     for model in modelollama:
