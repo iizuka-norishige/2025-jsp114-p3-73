@@ -19,15 +19,14 @@ args = parser.parse_args()
 if args.s:
     sprompt = args.s.read()
 else:
+    # システムプロンプトが設定されなかった場合
     sprompt = "あなたは親切なアシスタントです。日本語で回答します。"
 
 
 # ファイル名の表示
-#
 print(f'# {args.file.name}')
 
 # システムプロンプトの表示
-# print(f"システムプロンプト：{sprompt}")
 print("## システムプロンプト：")
 print(sprompt)
 
@@ -35,7 +34,7 @@ print(sprompt)
 # ファイル内容を変数に代入
 prompt = args.file.read()
 
-# print(f"ユーザプロンプト：¥n{prompt}")
+# ユーザプロンプトの表示
 print("")
 print("## ユーザプロンプト：")
 print(prompt)
@@ -45,6 +44,7 @@ print(prompt)
 if args.m:
     model_name = args.m
 else:
+    # モデル名が指定されなかった時
     model_name = 'gemma3:4b'
 
 # モデル名を表示
