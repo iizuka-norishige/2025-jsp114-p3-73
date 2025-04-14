@@ -4,6 +4,10 @@
 
 第114回日本病理学会での発表に関するコードを公開しています。
 
+- **perform-kadai.py** : 課題検討を実行するコード
+- **mk-command.py** : `perform-kadai.py` を連続的に実行するためのコマンドリストを作成するコード
+- **perform-stepbystep.sh** : `mk-command.py` で作成したコマンドリストを１行ずつ実行するコード
+
 <!-- # Badges -->
 
 [![Github issues](https://img.shields.io/github/issues/iizuka-norishige/2025-jsp114-p3-73)](https://github.com/iizuka-norishige/2025-jsp114-p3-73/issues)
