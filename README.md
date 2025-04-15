@@ -16,8 +16,7 @@
 
 LLM名のファイルに、課題１から課題４までの結果が収載されています。
 
-[**こちらのページ**](https://iizuka-norishige.github.io/2025-jsp114-p3-73/result-index.html)からどうぞ。
-
+<a href="https://iizuka-norishige.github.io/2025-jsp114-p3-73/result-index.html" target="_blank" >こちらのページ</a>からどうぞ。
 
 <!-- # Badges -->
 
