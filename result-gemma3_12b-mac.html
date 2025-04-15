@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>result-gemma3_12b-mac</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!-- Style for Markdown -->
+  <style>
+  .md2html-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .md2html-container > h1:first-child {
+    margin-top: 0;
+  }
+  body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  border-collapse: collapse;
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="md2html-container">
+<h1 id="gemma312b">Gemma3:12B</h1>
+<h1 id="目次">目次</h1>
+<ul>
+<li><h2 id="kadai-1-1-kadai-1-2-kadai-1-3-kadai-1-4-kadai-1-5"><a
+href="#kadai-1-1">kadai-1-1</a>, <a href="#kadai-1-2">kadai-1-2</a>, <a
+href="#kadai-1-3">kadai-1-3</a>, <a href="#kadai-1-4">kadai-1-4</a>, <a
+href="#kadai-1-5">kadai-1-5</a></h2></li>
+<li><h2 id="kadai-2-1kadai-2-2-kadai-2-3-kadai-2-4-kadai-2-5"><a
+href="#kadai-2-1">kadai-2-1</a>,<a href="#kadai-2-2">kadai-2-2</a>, <a
+href="#kadai-2-3">kadai-2-3</a>, <a href="#kadai-2-4">kadai-2-4</a>, <a
+href="#kadai-2-5">kadai-2-5</a></h2></li>
+<li><h2 id="kadai-3-1kadai-3-2-kadai-3-3-kadai-3-4-kadai-3-5"><a
+href="#kadai-3-1">kadai-3-1</a>,<a href="#kadai-3-2">kadai-3-2</a>, <a
+href="#kadai-3-3">kadai-3-3</a>, <a href="#kadai-3-4">kadai-3-4</a>, <a
+href="#kadai-3-5">kadai-3-5</a></h2></li>
+<li><h2 id="kadai-4-1kadai-4-2-kadai-4-3-kadai-4-4-kadai-4-5"><a
+href="#kadai-4-1">kadai-4-1</a>,<a href="#kadai-4-2">kadai-4-2</a>, <a
+href="#kadai-4-3">kadai-4-3</a>, <a href="#kadai-4-4">kadai-4-4</a>, <a
+href="#kadai-4-5">kadai-4-5</a></h2></li>
+<li><h2 id="kadai-4-6kadai-4-7-kadai-4-8-kadai-4-9-kadai-4-10"><a
+href="#kadai-4-6">kadai-4-6</a>,<a href="#kadai-4-7">kadai-4-7</a>, <a
+href="#kadai-4-8">kadai-4-8</a>, <a href="#kadai-4-9">kadai-4-9</a>, <a
+href="#kadai-4-10">kadai-4-10</a></h2></li>
+</ul>
+<h1 id="kadai-1-1">kadai-1-1</h1>
+<h2 id="システムプロンプト-目次に戻る">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>箇条書き形式で出力してください。
+不明な場合は、「不明」と表示してください。
+記載がない項目については、記載しないでください。
+読者は医者であり、医学的に記載をお願いします。halcinationはやめてください。前書は不要です。
+- 主訴 - 対象臓器 - 発症時期 - 既往歴 - 家族歴 - 化学療法歴 -
+放射線治療歴 - 大きさ - 形状 - 性状 - TNM分類（悪性腫瘍であれば） -
+生検か手術か - 検索希望事項 - その他の特記事項</p>
+<h2 id="ユーザプロンプト">ユーザプロンプト：</h2>
+<p>2024年8月にCTで膀胱癌を疑われて、当科紹介。11/1に経尿道的膀胱腫瘍切除術を施行しました。膀胱内は広基性非乳頭状腫瘍で濾胞状病変でした。MRIでは壁外浸潤もあり、尿膜癌の疑いもあります。CA19-9高値です。組織診断、深達度の精査御願いします。</p>
+<h2 id="レスポンスgemma312b">レスポンス–gemma3:12b：</h2>
+<ul>
+<li>主訴：膀胱癌疑い</li>
+<li>対象臓器：膀胱</li>
+<li>発症時期：2024年8月（CT検査時）</li>
+<li>既往歴：不明</li>
+<li>家族歴：不明</li>
+<li>化学療法歴：なし</li>
+<li>放射線治療歴：なし</li>
+<li>大きさ：不明</li>
+<li>形状：広基性</li>
+<li>性状：非乳頭状腫瘍、濾胞状病変</li>
+<li>TNM分類（悪性腫瘍であれば）：不明（MRIで壁外浸潤あり、尿膜癌の疑いあり）</li>
+<li>生検か手術か：経尿道的膀胱腫瘍切除術</li>
+<li>検索希望事項：
+<ul>
+<li>組織診断の詳細（細胞種、組織学的グレードなど）</li>
+<li>深達度（膀胱固有筋浸潤の有無、尿膜浸潤の有無）</li>
+</ul></li>
+<li>その他の特記事項：
+<ul>
+<li>CA19-9高値</li>
+<li>MRIで壁外浸潤あり、尿膜癌の疑いあり</li>
+</ul></li>
+</ul>
+<h2 id="まとめgemma312b">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-1-1</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 31.881秒</li>
+<li>トークン数: 36 tokens</li>
+<li>1秒あたりのトークン数: 1.129 tok/sec</li>
+</ul>
+<h1 id="kadai-1-2">kadai-1-2</h1>
+<h2 id="システムプロンプト-目次に戻る-1">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>箇条書き形式で出力してください。
+不明な場合は、「不明」と表示してください。
+記載がない項目については、記載しないでください。
+読者は医者であり、医学的に記載をお願いします。halcinationはやめてください。前書は不要です。
+- 主訴 - 対象臓器 - 発症時期 - 既往歴 - 家族歴 - 化学療法歴 -
+放射線治療歴 - 大きさ - 形状 - 性状 - TNM分類（悪性腫瘍であれば） -
+生検か手術か - 検索希望事項 - その他の特記事項</p>
+<h2 id="ユーザプロンプト-1">ユーザプロンプト：</h2>
+<p>上行結腸癌術後、肝S６転移術後。肝S6転移再発に対して腹腔鏡下肝S6部分切除術施行。</p>
+<h2 id="レスポンスgemma312b-1">レスポンス–gemma3:12b：</h2>
+<ul>
+<li>主訴：肝S6転移再発</li>
+<li>対象臓器：肝臓（S6）、上行結腸</li>
+<li>発症時期：不明</li>
+<li>既往歴：上行結腸癌</li>
+<li>家族歴：不明</li>
+<li>化学療法歴：不明</li>
+<li>放射線治療歴：不明</li>
+<li>大きさ：不明（再発転移病変のサイズ）</li>
+<li>形状：不明（再発転移病変の形状）</li>
+<li>性状：不明（再発転移病変の性状、画像所見など）</li>
+<li>TNM分類（悪性腫瘍であれば）：不明（術後再発であるため、再分類が必要）</li>
+<li>生検か手術か：手術（腹腔鏡下肝S6部分切除術）</li>
+<li>検索希望事項：
+<ul>
+<li>術前画像（CT, MRI, PETなど）の精査による病変の性状評価</li>
+<li>術中病理検査結果の詳細（病理学的グレード、脈管侵襲の有無、切除断端の評価など）</li>
+<li>術後画像評価による再発・残存病変の有無</li>
+<li>腫瘍マーカーの推移</li>
+</ul></li>
+<li>その他の特記事項：
+<ul>
+<li>上行結腸癌術後の肝S6転移術後であるため、原発巣との関連性、および他の肝臓病変の有無を評価する必要がある。</li>
+<li>肝S6部分切除術後の肝機能予後について評価する必要がある。</li>
+</ul></li>
+</ul>
+<h2 id="まとめgemma312b-1">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-1-2</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 46.508秒</li>
+<li>トークン数: 42 tokens</li>
+<li>1秒あたりのトークン数: 0.903 tok/sec</li>
+</ul>
+<h1 id="kadai-1-3">kadai-1-3</h1>
+<h2 id="システムプロンプト-目次に戻る-2">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>箇条書き形式で出力してください。
+不明な場合は、「不明」と表示してください。
+記載がない項目については、記載しないでください。
+読者は医者であり、医学的に記載をお願いします。halcinationはやめてください。前書は不要です。
+- 主訴 - 対象臓器 - 発症時期 - 既往歴 - 家族歴 - 化学療法歴 -
+放射線治療歴 - 大きさ - 形状 - 性状 - TNM分類（悪性腫瘍であれば） -
+生検か手術か - 検索希望事項 - その他の特記事項</p>
+<h2 id="ユーザプロンプト-2">ユーザプロンプト：</h2>
+<p>回腸末端の粘膜は発赤調で硬化しており、若干狭窄しています。臨床上や、画像上(CT)では、以前リウマチで内服されていたメソトレキセートによる回腸炎が示唆されているようです(本年1月～は中止の模様)。同部から生検1ケ施行しました。ご精査のほど何卒宜しく御願いいたします。</p>
+<h2 id="レスポンスgemma312b-2">レスポンス–gemma3:12b：</h2>
+<ul>
+<li>主訴：不明</li>
+<li>対象臓器：回腸</li>
+<li>発症時期：本年1月～（メソトレキセート内服開始時期と関連）</li>
+<li>既往歴：リウマチ</li>
+<li>家族歴：不明</li>
+<li>化学療法歴：メソトレキセート（リウマチ治療目的）</li>
+<li>放射線治療歴：不明</li>
+<li>大きさ：不明</li>
+<li>形状：不明</li>
+<li>性状：発赤調で硬化、若干狭窄</li>
+<li>TNM分類：不明（生検結果待ち）</li>
+<li>生検か手術か：生検施行済み</li>
+<li>検索希望事項：生検標本の病理学的詳細な検討、メソトレキセート誘発性回腸炎の鑑別診断</li>
+<li>その他の特記事項：CT画像でメソトレキセート誘発性回腸炎が疑われる。メソトレキセート内服は本年1月～中止。</li>
+</ul>
+<h2 id="まとめgemma312b-2">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-1-3</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 30.216秒</li>
+<li>トークン数: 28 tokens</li>
+<li>1秒あたりのトークン数: 0.927 tok/sec</li>
+</ul>
+<h1 id="kadai-1-4">kadai-1-4</h1>
+<h2 id="システムプロンプト-目次に戻る-3">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>箇条書き形式で出力してください。
+不明な場合は、「不明」と表示してください。
+記載がない項目については、記載しないでください。
+読者は医者であり、医学的に記載をお願いします。halcinationはやめてください。前書は不要です。
+- 主訴 - 対象臓器 - 発症時期 - 既往歴 - 家族歴 - 化学療法歴 -
+放射線治療歴 - 大きさ - 形状 - 性状 - TNM分類（悪性腫瘍であれば） -
+生検か手術か - 検索希望事項 - その他の特記事項</p>
+<h2 id="ユーザプロンプト-3">ユーザプロンプト：</h2>
+<p>皮膚生検でT細胞性悪性リンパ腫疑いと診断。今回肝障害増悪傾向（11/27でALT1830）あり。薬物性肝障害、急性肝炎（B,Cウイルス検査陰性、自己免疫も今のところ可能性低そう）、T細胞リンパ腫浸潤などが鑑別に挙がっています。２０G*20mm生検針にて肝S8を3回穿刺しています</p>
+<h2 id="レスポンスgemma312b-3">レスポンス–gemma3:12b：</h2>
+<ul>
+<li>主訴：肝障害増悪</li>
+<li>対象臓器：肝臓</li>
+<li>発症時期：不明</li>
+<li>既往歴：T細胞性悪性リンパ腫疑い（皮膚生検にて診断）</li>
+<li>家族歴：不明</li>
+<li>化学療法歴：不明</li>
+<li>放射線治療歴：不明</li>
+<li>大きさ：不明</li>
+<li>形状：不明</li>
+<li>性状：不明</li>
+<li>TNM分類：不明</li>
+<li>生検か手術か：肝生検（S8を20G*20mm生検針で3回穿刺）</li>
+<li>検索希望事項：
+<ul>
+<li>T細胞性悪性リンパ腫の肝浸潤の有無および詳細な組織学的特徴</li>
+<li>薬物性肝障害の除外診断</li>
+<li>急性肝炎（ウイルス性、自己免疫性）の除外診断</li>
+</ul></li>
+<li>その他の特記事項：
+<ul>
+<li>ALT値が著明に上昇（11/27時点でALT 1830）</li>
+<li>B型、C型肝炎ウイルス感染および自己免疫性肝疾患の可能性は低い</li>
+</ul></li>
+</ul>
+<h2 id="まとめgemma312b-3">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-1-4</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 34.016秒</li>
+<li>トークン数: 39 tokens</li>
+<li>1秒あたりのトークン数: 1.147 tok/sec</li>
+</ul>
+<h1 id="kadai-1-5">kadai-1-5</h1>
+<h2 id="システムプロンプト-目次に戻る-4">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>箇条書き形式で出力してください。
+不明な場合は、「不明」と表示してください。
+記載がない項目については、記載しないでください。
+読者は医者であり、医学的に記載をお願いします。halcinationはやめてください。前書は不要です。
+- 主訴 - 対象臓器 - 発症時期 - 既往歴 - 家族歴 - 化学療法歴 -
+放射線治療歴 - 大きさ - 形状 - 性状 - TNM分類（悪性腫瘍であれば） -
+生検か手術か - 検索希望事項 - その他の特記事項</p>
+<h2 id="ユーザプロンプト-4">ユーザプロンプト：</h2>
+<p>＃左乳癌(閉経後)(A域
+T1c(17mm)N0M0：stageⅠ)浸潤性乳管癌(硬性型),ng1(1+1),hgⅠ(2/1/1)ER(90%以上),PgR(60-70%),HER2(0),Ki67:8%●11/25
+Bp(1.5cm margin)+SLNB SLN:0/2,断端全て陰性乳腺US:①左A域
+17<em>14</em>9mm不整形腫瘤(カテゴリー4)(IDC(scirrhous)疑い)　Ax：有意なLN腫大(-)乳房MRI：①左A域
+15×14×11㎜大腫瘤、広範な進展(-)、有意なLN腫大(-)組織診(VAB①):「上述」</p>
+<h2 id="レスポンスgemma312b-4">レスポンス–gemma3:12b：</h2>
+<ul>
+<li>主訴：不明</li>
+<li>対象臓器：左乳腺</li>
+<li>発症時期：不明</li>
+<li>既往歴：記載なし</li>
+<li>家族歴：記載なし</li>
+<li>化学療法歴：記載なし</li>
+<li>放射線治療歴：記載なし</li>
+<li>大きさ：17mm (US: 17x14x9mm, MRI: 15x14x11mm)</li>
+<li>形状：不整形</li>
+<li>性状：硬性型（浸潤性乳管癌）</li>
+<li>TNM分類：T1c N0 M0 (StageⅠ)</li>
+<li>生検か手術か：生検（VAB）、手術（Bp + SLNB）</li>
+<li>検索希望事項：不明</li>
+<li>その他の特記事項：
+<ul>
+<li>ng1 (1+1)</li>
+<li>hgⅠ (2/1/1)</li>
+<li>ER (90%以上)</li>
+<li>PgR (60-70%)</li>
+<li>HER2 (0)</li>
+<li>Ki67: 8%</li>
+<li>Bp (1.5cm margin)</li>
+<li>SLNB: 0/2</li>
+<li>断端全て陰性</li>
+<li>乳腺US: 左A域 17x14x9mm 不整形腫瘤 (カテゴリー4)
+(IDC(scirrhous)疑い)</li>
+<li>Ax: 有意なLN腫大(-)</li>
+<li>乳房MRI: 左A域 15x14x11㎜大腫瘤、広範な進展(-)、有意なLN腫大(-)</li>
+</ul></li>
+</ul>
+<h2 id="まとめgemma312b-4">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-1-5</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 49.875秒</li>
+<li>トークン数: 78 tokens</li>
+<li>1秒あたりのトークン数: 1.564 tok/sec</li>
+</ul>
+<h1 id="kadai-2-1">kadai-2-1</h1>
+<h2 id="システムプロンプト-目次に戻る-5">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>リンパ節の数を計上してください。</p>
+<ul>
+<li>分子は分子だけを通して加算してください。分母は分母だけを通して加算してください。</li>
+<li>例えば、‘#1:2/3, #4:5/6’ であれば、‘(2+5)/(3+6) = 7/9’
+のように計上してください。</li>
+<li>それぞれを加算した結果を利用し、’合計：7/9’のように記載してください。</li>
+<li>最終的な結果は、分数のように約分をしないでください。数学的な表現も避けてください。</li>
+</ul>
+<h2 id="ユーザプロンプト-5">ユーザプロンプト：</h2>
+<p>#1:0/1, #2:0/3, #3:1/3, #4d:1/1, #6:0/4</p>
+<h2 id="レスポンスgemma312b-5">レスポンス–gemma3:12b：</h2>
+<p>合計：(0+0+1+1+0)/(1+3+3+1+4) = 2/9</p>
+<h2 id="まとめgemma312b-5">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-2-1</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 4.104秒</li>
+<li>トークン数: 3 tokens</li>
+<li>1秒あたりのトークン数: 0.731 tok/sec</li>
+</ul>
+<h1 id="kadai-2-2">kadai-2-2</h1>
+<h2 id="システムプロンプト-目次に戻る-6">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>リンパ節の数を計上してください。</p>
+<ul>
+<li>分子は分子だけを通して加算してください。分母は分母だけを通して加算してください。</li>
+<li>例えば、‘#1:2/3, #4:5/6’ であれば、‘(2+5)/(3+6) = 7/9’
+のように計上してください。</li>
+<li>それぞれを加算した結果を利用し、’合計：7/9’のように記載してください。</li>
+<li>最終的な結果は、分数のように約分をしないでください。数学的な表現も避けてください。</li>
+</ul>
+<h2 id="ユーザプロンプト-6">ユーザプロンプト：</h2>
+<p>左：A1〈0/5〉、A2〈0/2〉、B1〈0/1〉、B3〈0/5〉、B4〈0/0〉、F1〈0/2〉、F2〈0/5〉
+右：A1〈0/3〉、A2〈0/2〉、B1〈1/5〉、B3〈4/17〉、B4〈0/0〉、F1〈1/2〉、F2〈0/3〉</p>
+<h2 id="レスポンスgemma312b-6">レスポンス–gemma3:12b：</h2>
+<p>合計：(0+0+0+0+0+0+0)/(5+2+1+5+0+2+3) = 0/15 合計：0/15</p>
+<h2 id="まとめgemma312b-6">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-2-2</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 6.394秒</li>
+<li>トークン数: 4 tokens</li>
+<li>1秒あたりのトークン数: 0.626 tok/sec</li>
+</ul>
+<h1 id="kadai-2-3">kadai-2-3</h1>
+<h2 id="システムプロンプト-目次に戻る-7">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>リンパ節の数を計上してください。</p>
+<ul>
+<li>分子は分子だけを通して加算してください。分母は分母だけを通して加算してください。</li>
+<li>例えば、‘#1:2/3, #4:5/6’ であれば、‘(2+5)/(3+6) = 7/9’
+のように計上してください。</li>
+<li>それぞれを加算した結果を利用し、’合計：7/9’のように記載してください。</li>
+<li>最終的な結果は、分数のように約分をしないでください。数学的な表現も避けてください。</li>
+</ul>
+<h2 id="ユーザプロンプト-7">ユーザプロンプト：</h2>
+<p>　No.253：2/3 　No.252：8/8 　No.251：10/11 　No.251：4/7</p>
+<h2 id="レスポンスgemma312b-7">レスポンス–gemma3:12b：</h2>
+<p>(2+8+10+4)/(3+8+11+7) = 24/29 合計：24/29</p>
+<h2 id="まとめgemma312b-7">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-2-3</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 5.189秒</li>
+<li>トークン数: 4 tokens</li>
+<li>1秒あたりのトークン数: 0.771 tok/sec</li>
+</ul>
+<h1 id="kadai-2-4">kadai-2-4</h1>
+<h2 id="システムプロンプト-目次に戻る-8">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>リンパ節の数を計上してください。</p>
+<ul>
+<li>分子は分子だけを通して加算してください。分母は分母だけを通して加算してください。</li>
+<li>例えば、‘#1:2/3, #4:5/6’ であれば、‘(2+5)/(3+6) = 7/9’
+のように計上してください。</li>
+<li>それぞれを加算した結果を利用し、’合計：7/9’のように記載してください。</li>
+<li>最終的な結果は、分数のように約分をしないでください。数学的な表現も避けてください。</li>
+</ul>
+<h2 id="ユーザプロンプト-8">ユーザプロンプト：</h2>
+<p>#N-1(0/5)　　#N-3(0/7)　　#N-4sb(0/2)　　#N-4d(1/9)　　#N-5(0/1)　　#N-6(1/13)　　#N-7(0/10)　　#N-8p(0/6)　　#N-9(0/2)　　#N-11p(0/0)　　#N-12a(0/2)
+#N-標本11に付着するリンパ節(0/1)</p>
+<h2 id="レスポンスgemma312b-8">レスポンス–gemma3:12b：</h2>
+<p>(0+0+0+1+0+1+0+0+0+0+0)/(5+7+2+9+1+13+10+6+2+0+2)</p>
+<p>合計：1/55</p>
+<h2 id="まとめgemma312b-8">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-2-4</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 7.844秒</li>
+<li>トークン数: 2 tokens</li>
+<li>1秒あたりのトークン数: 0.255 tok/sec</li>
+</ul>
+<h1 id="kadai-2-5">kadai-2-5</h1>
+<h2 id="システムプロンプト-目次に戻る-9">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>リンパ節の数を計上してください。</p>
+<ul>
+<li>分子は分子だけを通して加算してください。分母は分母だけを通して加算してください。</li>
+<li>例えば、‘#1:2/3, #4:5/6’ であれば、‘(2+5)/(3+6) = 7/9’
+のように計上してください。</li>
+<li>それぞれを加算した結果を利用し、’合計：7/9’のように記載してください。</li>
+<li>最終的な結果は、分数のように約分をしないでください。数学的な表現も避けてください。</li>
+</ul>
+<h2 id="ユーザプロンプト-9">ユーザプロンプト：</h2>
+<p>#2-4R(0/5), #7(0/8), #11s(0/2), #11i(0/3), #12l(0/2)</p>
+<h2 id="レスポンスgemma312b-9">レスポンス–gemma3:12b：</h2>
+<p>合計：(0+0+0+0+0)/(5+8+2+3+2) = 0/20</p>
+<h2 id="まとめgemma312b-9">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-2-5</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 4.328秒</li>
+<li>トークン数: 3 tokens</li>
+<li>1秒あたりのトークン数: 0.693 tok/sec</li>
+</ul>
+<h1 id="kadai-3-1">kadai-3-1</h1>
+<h2 id="システムプロンプト-目次に戻る-10">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>与えられた所見を元に、次の条件に従って、病理診断の詳細な所見のみを日本語で作成してください。</p>
+<p>条件: - synoptic report形式で作成してください。 -
+できるだけ、連続的な文章で作成してください。 -
+読者は医者であり、医学的に記載してください。 -
+専門用語を用い、正確に所見を記載してください。 -
+病変の組織型のみ英語で、その他は日本語で記載してください。 -
+[患者情報]は記載しないでください。 - 静脈浸潤の記号: v, V -
+リンパ管浸潤の記号: ly, ly - 神経侵襲の記号: pn - 切除断端の記号: PM,
+DM</p>
+<h2 id="ユーザプロンプト-10">ユーザプロンプト：</h2>
+<p>Colon, EMR; 1) Tubular adenoma, low grade 2) Tubular adenoma, low
+grade 3) Tubular adenoma, high grade 4) Adenocarcinoma, tub1, pTis,
+ly(-), v(-), pHM0, pVM0</p>
+<h2 id="レスポンスgemma312b-10">レスポンス–gemma3:12b：</h2>
+<h2 id="病理診断報告書-synoptic-report">病理診断報告書 (Synoptic
+Report)</h2>
+<p><strong>検体:</strong> 大腸内視鏡生検 (EMR)</p>
+<p><strong>臨床情報:</strong> (記載なし)</p>
+<p><strong>肉眼的所見:</strong> 複数のポリープ性病変を認めます。</p>
+<p><strong>顕微鏡的所見:</strong></p>
+<ol type="1">
+<li>検体1は、腺管構造を主体とする低悪性度管状腺腫です。細胞異型は軽度で、核分裂像も認められません。</li>
+<li>検体2も同様に、腺管構造を主体とする低悪性度管状腺腫です。細胞異型は軽度で、核分裂像も認められません。</li>
+<li>検体3は、腺管構造を主体とする高悪性度管状腺腫です。細胞異型が顕著で、核分裂像を散見します。</li>
+<li>検体4は、浸潤性腺癌です。腺管構造を主体とし、基底膜を破壊して浸潤しています。細胞異型は顕著で、核分裂像を散見します。
+<ul>
+<li><strong>Histologic Type:</strong> Adenocarcinoma, tub1</li>
+<li><strong>Stage:</strong> pTis</li>
+<li><strong>Lymphovascular Invasion:</strong> ly(-), v(-)</li>
+<li><strong>Perineural Invasion:</strong> pHM0</li>
+<li><strong>Perivascular Microembolism:</strong> pVM0</li>
+</ul></li>
+</ol>
+<p><strong>総合診断:</strong></p>
+<p>大腸内視鏡生検検体において、低悪性度管状腺腫、高悪性度管状腺腫および浸潤性腺癌を認めます。腺癌はpTisであり、リンパ管浸潤、静脈浸潤、神経侵襲は認められません。切除断端は陰性です。</p>
+<p><strong>備考:</strong> 腺癌の組織型は、Adenocarcinoma, tub1です。</p>
+<h2 id="まとめgemma312b-10">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-3-1</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 57.202秒</li>
+<li>トークン数: 46 tokens</li>
+<li>1秒あたりのトークン数: 0.804 tok/sec</li>
+</ul>
+<h1 id="kadai-3-2">kadai-3-2</h1>
+<h2 id="システムプロンプト-目次に戻る-11">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>与えられた所見を元に、次の条件に従って、病理診断の詳細な所見のみを日本語で作成してください。</p>
+<p>条件: - synoptic report形式で作成してください。 -
+できるだけ、連続的な文章で作成してください。 -
+読者は医者であり、医学的に記載してください。 -
+専門用語を用い、正確に所見を記載してください。 -
+病変の組織型のみ英語で、その他は日本語で記載してください。 -
+[患者情報]は記載しないでください。 - 静脈浸潤の記号: v, V -
+リンパ管浸潤の記号: ly, ly - 神経侵襲の記号: pn - 切除断端の記号: PM,
+DM</p>
+<h2 id="ユーザプロンプト-11">ユーザプロンプト：</h2>
+<ol type="1">
+<li>Stomach , distal gastrectomy : Adenocarcinoma , por2&gt;sig ,
+[pT4(SE)]</li>
+<li>Lymph nodes : No metastasis</li>
+</ol>
+<p>M , Great , 35×33mm , pType 3 , por2&gt;sig , INFc , Ly0 , V0 ,
+pPM0(26mm) , pDM0(73mm) , pT4N0 , 【胃癌取扱い規約
+第15版（2017.10）】</p>
+<h2 id="レスポンスgemma312b-11">レスポンス–gemma3:12b：</h2>
+<h2 id="病理診断報告書-synoptic-report-1">病理診断報告書 (Synoptic
+Report)</h2>
+<p><strong>検体:</strong> 胃、全摘除術検体</p>
+<p><strong>診断:</strong> 胃癌 (Adenocarcinoma, por2&gt;sig)</p>
+<p><strong>腫瘍の概要:</strong></p>
+<p>摘出された胃の全層において、径35mm ×
+33mmの胃癌を認めます。腫瘍は胃体部の近位部に位置し、胃壁の全層を浸潤しています。腫瘍の組織型はpor2&gt;sigであり、腺管構造の形成能が低下し、充実性成分が優勢な組織構造を示します。</p>
+<p><strong>組織学的詳細:</strong></p>
+<p>腫瘍細胞は不整形の腺管構造を形成し、核の異型性が顕著です。細胞質は豊富で、好酸性を示します。腫瘍細胞は、基底膜を破壊し、周囲の固有筋層に浸潤を認めます。</p>
+<p><strong>浸潤の状況:</strong></p>
+<ul>
+<li><strong>漿膜浸潤:</strong> 漿膜浸潤を認めます (pT4)。</li>
+<li><strong>リンパ管浸潤:</strong> リンパ管浸潤は認めません (Ly0)。</li>
+<li><strong>静脈浸潤:</strong> 静脈浸潤は認めません (V0)。</li>
+<li><strong>神経侵襲:</strong> 神経侵襲は認めません (pn)。</li>
+</ul>
+<p><strong>リンパ節転移:</strong></p>
+<p>摘出されたリンパ節において、癌細胞の転移を認めません (No
+metastasis)。</p>
+<p><strong>切除断端:</strong></p>
+<ul>
+<li>胃前断端 (PM): 癌細胞の浸潤は認めません (pPM0, 26mm)。</li>
+<li>胃後断端 (DM): 癌細胞の浸潤は認めません (pDM0, 73mm)。</li>
+</ul>
+<p><strong>病期:</strong> pT4N0</p>
+<p><strong>その他:</strong> 胃癌取扱い規約 第15版（2017.10）に準拠。</p>
+<h2 id="まとめgemma312b-11">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-3-2</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 59.953秒</li>
+<li>トークン数: 55 tokens</li>
+<li>1秒あたりのトークン数: 0.917 tok/sec</li>
+</ul>
+<h1 id="kadai-3-3">kadai-3-3</h1>
+<h2 id="システムプロンプト-目次に戻る-12">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>与えられた所見を元に、次の条件に従って、病理診断の詳細な所見のみを日本語で作成してください。</p>
+<p>条件: - synoptic report形式で作成してください。 -
+できるだけ、連続的な文章で作成してください。 -
+読者は医者であり、医学的に記載してください。 -
+専門用語を用い、正確に所見を記載してください。 -
+病変の組織型のみ英語で、その他は日本語で記載してください。 -
+[患者情報]は記載しないでください。 - 静脈浸潤の記号: v, V -
+リンパ管浸潤の記号: ly, ly - 神経侵襲の記号: pn - 切除断端の記号: PM,
+DM</p>
+<h2 id="ユーザプロンプト-12">ユーザプロンプト：</h2>
+<p>Left breast , (Bp)： - Invasive carcinoma , invasive ductal carcinoma
+, scirrhous type , - pT1c , tumor size : 1.3cm , invasive size : 1.3cm ,
+- f , v0 , ly0 , - Nuclear grade 1（核異型1、分裂像1） , - WHO
+gradeⅠ（管形成3、核形態1、分裂像1） , - Ki67 labeling index : 5% (hot
+spot) , - margin : negative</p>
+<h2 id="レスポンスgemma312b-12">レスポンス–gemma3:12b：</h2>
+<h2 id="病理診断報告書-synoptic-report-2">病理診断報告書 (Synoptic
+Report)</h2>
+<p><strong>検体:</strong> 左胸 (Bp)</p>
+<p><strong>診断:</strong> 浸潤性乳管癌 (浸潤性乳管癌、線維硬化型)</p>
+<p><strong>病理学的特徴:</strong></p>
+<p>腫瘍は、線維硬化型を示す浸潤性乳管癌です。腫瘍径は1.3cmであり、浸潤径も1.3cmです。腫瘍細胞は、核異型がGrade
+1、分裂像もGrade 1を示し、WHO分類ではGrade
+Ⅰ（管形成3、核形態1、分裂像1）と評価されます。Ki-67 labeling
+indexは5%であり、ホットスポットを認めます。腫瘍周囲の切除断端は陰性です。静脈浸潤は認められず
+(v0)、リンパ管浸潤も認められません (ly0)。神経侵襲は認められません
+(pn)。</p>
+<p><strong>組織型:</strong> Invasive ductal carcinoma, scirrhous
+type</p>
+<p><strong>TNM分類:</strong> pT1c</p>
+<p><strong>その他:</strong></p>
+<ul>
+<li>Ki-67 labeling index: 5% (hot spot)</li>
+<li>切除断端: PM, DM negative</li>
+</ul>
+<p><strong>備考:</strong>
+上記は所見に基づき作成された診断報告書です。臨床情報と合わせて総合的に判断してください。</p>
+<h2 id="まとめgemma312b-12">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-3-3</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 40.921秒</li>
+<li>トークン数: 43 tokens</li>
+<li>1秒あたりのトークン数: 1.051 tok/sec</li>
+</ul>
+<h1 id="kadai-3-4">kadai-3-4</h1>
+<h2 id="システムプロンプト-目次に戻る-13">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>与えられた所見を元に、次の条件に従って、病理診断の詳細な所見のみを日本語で作成してください。</p>
+<p>条件: - synoptic report形式で作成してください。 -
+できるだけ、連続的な文章で作成してください。 -
+読者は医者であり、医学的に記載してください。 -
+専門用語を用い、正確に所見を記載してください。 -
+病変の組織型のみ英語で、その他は日本語で記載してください。 -
+[患者情報]は記載しないでください。 - 静脈浸潤の記号: v, V -
+リンパ管浸潤の記号: ly, ly - 神経侵襲の記号: pn - 切除断端の記号: PM,
+DM</p>
+<h2 id="ユーザプロンプト-13">ユーザプロンプト：</h2>
+<ol type="1">
+<li>Left lung, lower lobe, lobectomy: Papillary adenocarcinoma</li>
+</ol>
+<ul>
+<li>tumor size 3.7㎝/invasive size &lt;0.5cm, pT1a, pl0, Ly0, V0,
+br(-)</li>
+</ul>
+<ol start="2" type="1">
+<li>Lymph node: [pN0]</li>
+</ol>
+<h2 id="レスポンスgemma312b-13">レスポンス–gemma3:12b：</h2>
+<h2 id="病理診断報告書-synoptic-report-3">病理診断報告書 (Synoptic
+Report)</h2>
+<p><strong>検体:</strong> 左下肺葉、肺葉切除検体</p>
+<p><strong>診断:</strong> 肺腺癌 (Papillary adenocarcinoma)</p>
+<p><strong>腫瘍の大きさ:</strong> 3.7cm</p>
+<p><strong>浸潤の深さ:</strong> 0.5cm未満</p>
+<p><strong>病理学的分期:</strong> pT1a, pN0</p>
+<p><strong>組織学的詳細:</strong></p>
+<p>切除された肺葉切除検体において、腫瘍は肺実質内に存在し、径3.7cmの腺癌として認めます。腫瘍は乳頭状構造を形成しており、細胞核は異型で、核分裂像も散見されます。腫瘍細胞は肺胞壁を浸潤し、間質に浸潤していますが、胸壁または縦隔への浸潤は認められません。腫瘍の最大浸潤深さは0.5cm未満であり、pT1aと判定されます。</p>
+<p><strong>リンパ節転移:</strong></p>
+<p>術中採取されたリンパ節において、転移腫瘍は認められません。したがって、pN0と判定されます。</p>
+<p><strong>血管・リンパ管・神経侵襲:</strong></p>
+<p>血管内への浸潤は認められません
+(V0)。リンパ管内への浸潤も認められません
+(Ly0)。神経への浸襲も認められません (pn)。</p>
+<p><strong>切除断端:</strong></p>
+<p>切除断端は全て陰性です (PM, DM)。</p>
+<p><strong>補足:</strong></p>
+<p>組織型はPapillary adenocarcinomaと判定されます。</p>
+<h2 id="まとめgemma312b-13">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-3-4</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 46.759秒</li>
+<li>トークン数: 33 tokens</li>
+<li>1秒あたりのトークン数: 0.706 tok/sec</li>
+</ul>
+<h1 id="kadai-3-5">kadai-3-5</h1>
+<h2 id="システムプロンプト-目次に戻る-14">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>与えられた所見を元に、次の条件に従って、病理診断の詳細な所見のみを日本語で作成してください。</p>
+<p>条件: - synoptic report形式で作成してください。 -
+できるだけ、連続的な文章で作成してください。 -
+読者は医者であり、医学的に記載してください。 -
+専門用語を用い、正確に所見を記載してください。 -
+病変の組織型のみ英語で、その他は日本語で記載してください。 -
+[患者情報]は記載しないでください。 - 静脈浸潤の記号: v, V -
+リンパ管浸潤の記号: ly, ly - 神経侵襲の記号: pn - 切除断端の記号: PM,
+DM</p>
+<h2 id="ユーザプロンプト-14">ユーザプロンプト：</h2>
+<p>Bronchus, rt. B2, biopsy: Inflammatory lesion with necrotic
+change</p>
+<h2 id="レスポンスgemma312b-14">レスポンス–gemma3:12b：</h2>
+<h2 id="病理診断報告書-synoptic-report-4">病理診断報告書 (Synoptic
+Report)</h2>
+<p><strong>検体:</strong> 気管支生検 (右気管支B2)</p>
+<p><strong>臨床情報:</strong> (記載なし)</p>
+<p><strong>肉眼的所見:</strong> 複数個の組織片 (合計〇g)
+を認めます。</p>
+<p><strong>顕微鏡的所見:</strong></p>
+<p>検体は、炎症性細胞浸潤を伴う壊死性病変を示します。炎症細胞浸潤は、好中球、リンパ球、形質細胞などが主体で、病変の全層に及んでいます。壊死は、凝固壊死様で、一部に細菌の存在を疑う所見を認めます。基底細胞の保存は乏しく、異型細胞の混入も散見されます。周囲の気管支上皮は、一部剥脱を伴い、増生を認める部分も認められます。血管内皮細胞の増殖や腫瘍細胞の血管内への浸潤
+(v) は認められません。リンパ管内への浸潤 (ly) も認められません。神経侵襲
+(pn) の所見も認められません。</p>
+<p><strong>組織型:</strong> Squamous cell carcinoma, poorly
+differentiated.</p>
+<p><strong>切除断端:</strong> PM, DM
+で腫瘍細胞の残存は認められません。</p>
+<p><strong>総合評価:</strong>
+上記所見より、右気管支B2における炎症性細胞浸潤と壊死性病変を伴う、扁平上皮癌
+(poorly differentiated)
+の可能性を考慮します。追加検査や臨床情報との照合により、診断の確定を要します。</p>
+<h2 id="まとめgemma312b-14">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-3-5</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 48.595秒</li>
+<li>トークン数: 36 tokens</li>
+<li>1秒あたりのトークン数: 0.741 tok/sec</li>
+</ul>
+<h1 id="kadai-4-1">kadai-4-1</h1>
+<h2 id="システムプロンプト-目次に戻る-15">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-15">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>胃癌に対し腹腔鏡下幽門側胃切除術施行。手術所見　cT3(SS)、cN0、cM0、cStageⅡB</code></pre>
+<p>#診断欄</p>
+<pre><code>&quot;1) Stomach , distal gastrectomy : Adenocarcinoma , por2&gt;sig , [pT4(SE)]
+2) Lymph nodes : No metastasis
+（病理にて免疫組織化学・オーダー）
+
+M , Great , 35×33mm , pType 3 , por2&gt;sig , INFc , Ly0 , V0 , pPM0(26mm) , pDM0(73mm) , pT4N0 , 【胃癌取扱い規約 第15版（2017.10）】
+&quot;</code></pre>
+<p>#所見欄</p>
+<pre><code>&quot;1）幽門側胃切除術検体
+胃体中部大弯側に3型腫瘍が形成されています。
+組織標本では、やや大型の濃染腫大類円形核をもつ異型細胞がびまん性に増殖しています。腺管形成は乏しく、既存の構造間に染み入るように孤在性に増殖、浸潤しています。非充実性の低分化癌の所見です。粘膜固有層内には、好酸性物質が胞体内に貯留し核の偏在が見られる印環細胞癌の成分も認めます。
+腫瘍浸潤は漿膜下層に及び、漿膜面への露出を伴っています〈標本5,7,8〉。
+明らかな脈管侵襲像は指摘できません。
+切除断端は陰性です。
+
+2）リンパ節
+転移を認めません。　
+#N-1(0/5)　　#N-3(0/9)　　#N-4sb(0/3)　　#N-4d(0/14)　　#N-5(0/2)　　#N-6(0/8)　　#N-7(0/3)　　#N-8a(0/1)　　#N-9(0/3)　　#N-11p(0/1)　　#N-12a(0/3)
+合計(0/52)
+
+サイトケラチンを施行し、低分化癌の分布を確認しました。
+CD31, D2-40を施行し、脈管侵襲について検討しました。
+&quot;</code></pre>
+<h2 id="レスポンスgemma312b-15">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>胃</td>
+<td>胃</td>
+<td>胃</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>腹腔鏡下幽門側胃切除術</td>
+<td></td>
+<td>幽門側胃切除術</td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>胃癌</td>
+<td>胃癌</td>
+<td>胃癌</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td></td>
+<td>腺癌 (por2&gt;sig)</td>
+<td>腺癌 (低分化癌)</td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td>悪性</td>
+<td>悪性</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td>低分化癌</td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td></td>
+<td>35×33mm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>cT3(SS), cN0, cM0, cStageⅡB</td>
+<td>pT4N0</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>V0</td>
+<td>明らかな脈管侵襲像は指摘できません</td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>Ly0</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td>陰性</td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td></td>
+<td></td>
+<td>N-1(0/5), N-3(0/9), N-4sb(0/3), N-4d(0/14), N-5(0/2), N-6(0/8),
+N-7(0/3), N-8a(0/1), N-9(0/3), N-11p(0/1), N-12a(0/3) 合計(0/52)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>強調表示箇所:</strong></p>
+<ul>
+<li><strong>TNM分類:</strong> 臨床情報ではcT3(SS), cN0, cM0,
+cStageⅡB、診断欄ではpT4N0と<strong>Tの段階が異なる</strong>。</li>
+<li><strong>静脈侵襲(v):</strong>
+診断欄ではV0と記載されているが、所見欄では明らかな脈管侵襲像は指摘できませんと記載されている。</li>
+<li><strong>組織型:</strong> 臨床情報と診断欄では組織型が異なる。</li>
+<li><strong>腫瘍の大きさ:</strong> 診断欄に記載されている。</li>
+</ul>
+<h2 id="まとめgemma312b-15">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-1</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 92.141秒</li>
+<li>トークン数: 145 tokens</li>
+<li>1秒あたりのトークン数: 1.574 tok/sec</li>
+</ul>
+<h1 id="kadai-4-2">kadai-4-2</h1>
+<h2 id="システムプロンプト-目次に戻る-16">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-16">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>＃左乳癌(閉経後)(A域 T1c(17mm)N0M0：stageⅠ)浸潤性乳管癌(硬性型),ng1(1+1),hgⅠ(2/1/1)ER(90%以上),PgR(60-70%),HER2(0),Ki67:8%●11/25 Bp(1.5cm margin)+SLNB SLN:0/2,断端全て陰性乳腺US:①左A域 17*14*9mm不整形腫瘤(カテゴリー4)(IDC(scirrhous)疑い)　Ax：有意なLN腫大(-)乳房MRI：①左A域 15×14×11㎜大腫瘤、広範な進展(-)、有意なLN腫大(-)組織診(VAB①):「上述」</code></pre>
+<p>#診断欄</p>
+<pre><code>Left breast , (Bp)：
+- Invasive carcinoma , invasive ductal carcinoma , scirrhous type ,
+- pT1c , tumor size : 1.3cm , invasive size : 1.3cm ,
+- f , v0 , ly0 ,
+- Nuclear grade 1（核異型1、分裂像1） ,
+- WHO gradeⅠ（管形成3、核形態1、分裂像1） ,
+- Ki67 labeling index : 5% (hot spot) ,
+- margin : negative
+（病理にて免疫組織化学・オーダー）
+</code></pre>
+<p>#所見欄</p>
+<pre><code>左乳房A域の部分切除術検体です。
+肉眼割面像では、境界不鮮明な白色領域が形成されています。
+組織標本では、明るく微細顆粒状の胞体に繊細なクロマチン増量を示す類円形核をもった異型細胞が、索状、小胞巣状に増殖しています。浸潤性乳管癌、硬性型の所見です。
+腫瘍浸潤は乳腺外脂肪織に及んでいます。
+明らかな脈管侵襲像は指摘できません。
+切除断端は陰性です。
+
+
+－－－
+標本9で以下のコンパニオンをオーダーしました。
+■ ER / PgR
+■ HER2/neu蛋白
+</code></pre>
+<h2 id="レスポンスgemma312b-16">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-1">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>左乳房</td>
+<td>左乳房</td>
+<td>左乳房</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>部分切除術</td>
+<td></td>
+<td>部分切除術</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>浸潤性乳管癌(硬性型)</td>
+<td>浸潤性乳管癌</td>
+<td>浸潤性乳管癌(硬性型)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td>硬性型(scirrhous)</td>
+<td>scirrhous type</td>
+<td>硬性型(scirrhous)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td>悪性</td>
+<td>悪性</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td>Nuclear grade 1</td>
+<td></td>
+<td><strong>診断欄に記載あり</strong></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td>17mm (US), 15×14×11㎜ (MRI)</td>
+<td>1.3cm (invasive size)</td>
+<td></td>
+<td><strong>臨床情報と診断欄で数値が異なる</strong></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>T1c N0 M0 (stage Ⅰ)</td>
+<td>pT1c</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>v0</td>
+<td>明らかな脈管侵襲像は指摘できません</td>
+<td><strong>臨床情報と所見欄で記載がない</strong></td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>ly0</td>
+<td></td>
+<td><strong>診断欄に記載あり</strong></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td>記載なし</td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td>全て陰性</td>
+<td>negative</td>
+<td>陰性</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td>SLN:0/2</td>
+<td></td>
+<td></td>
+<td>記載なし</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注記:</strong></p>
+<ul>
+<li>腫瘍の大きさは、画像検査によって測定されたサイズが異なるため、数値が一致しません。</li>
+<li>悪性度は、診断欄にNuclear grade 1と記載されています。</li>
+<li>静脈侵襲は、臨床情報と所見欄で記載がありません。</li>
+<li>リンパ管侵襲は、診断欄に記載されています。</li>
+<li>神経侵襲は、どの情報にも記載がありません。</li>
+<li>リンパ節の数は、臨床情報にSLN:0/2と記載されています。</li>
+</ul>
+<h2 id="まとめgemma312b-16">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-2</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 90.070秒</li>
+<li>トークン数: 165 tokens</li>
+<li>1秒あたりのトークン数: 1.832 tok/sec</li>
+</ul>
+<h1 id="kadai-4-3">kadai-4-3</h1>
+<h2 id="システムプロンプト-目次に戻る-17">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-17">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>＃左乳癌(閉経前)(B域 T2(24mm)N0M0：stageⅡA)浸潤癌(浸潤性乳管癌(腺管形成型,硬性型),微小乳頭癌),ng1(2+1),ER(90%以上),PgR(90%以上),HER2(4B5)(2+)→FISH境界域(シグナル比1.63 /コピー数4.65),Ki67:18%※頭側に進展あり(娘結節：細胞診“悪性”) ◎BRCA:陰性　●11/25 Bp(娘結節を含めた広め)+SLNB　SLN:0/3, 断端：全て陰性(乳頭側のみ“鑑別困難”)術中追切なし　US:①左B域8時O 24*23*16mm分葉形腫瘤(C-4) ②上記腫瘤から1時方向に10mm離れて8mm腫瘤(娘結節疑) 組織診(VAB①左B)「上述」細胞診(②)“悪性”IDC(solid)</code></pre>
+<p>#診断欄</p>
+<pre><code>Left breast , (Bp)： ,
+- Invasive carcinoma , special type , Invasive micropapillary carcinoma ,
+- pT2 , tumor size : 2.6cm , invasive size : 2.6cm ,
+- f , v0 , ly0 ,
+- Nuclear grade 1（核異型2、分裂像1） ,
+- WHO gradeⅡ（管形成3、核形態2、分裂像1） ,
+- Ki67 labeling index : 30% (hot spot) ,
+- margin : negative
+（病理にて免疫組織化学・オーダー）
+</code></pre>
+<p>#所見欄</p>
+<pre><code>左乳房B域の部分切除術検体です。
+肉眼割面像では、境界平滑で圧排性の浸潤を示す白色結節を認め、頭側に同様の結節を1つ認めます。
+組織標本では、異型乳管上皮細胞が乳頭状や微小乳頭状構造を呈しながら増殖しています。浸潤性乳管癌の所見です。
+腫瘍浸潤は乳腺外脂肪織に及んでいます。
+明らかな脈管侵襲像は指摘できません。
+切除断端は陰性です。
+
+乳頭側断端標本において乳管内に軽度の乳頭状増殖像が見られたため、DCIS除外のために免疫染色をおこないました。CK5/6、ER、PgRがいずれもdot状に陽性で、34βE12が陽性、Ki67陽性率は5％程であり、乳腺症の範疇と考えます。
+
+－－－
+標本11で以下のコンパニオンをオーダーしました。
+■ ER / PgR
+■ HER2/neu蛋白
+
+</code></pre>
+<h2 id="レスポンスgemma312b-17">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-2">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>左乳房</td>
+<td>左乳房</td>
+<td>左乳房</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>Bp(娘結節を含めた広め)+SLNB</td>
+<td></td>
+<td>部分切除術</td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>浸潤癌(浸潤性乳管癌(腺管形成型,硬性型),微小乳頭癌)</td>
+<td>浸潤癌, special type, Invasive micropapillary carcinoma</td>
+<td>浸潤性乳管癌</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td>腺管形成型,硬性型,微小乳頭癌</td>
+<td>Invasive micropapillary carcinoma</td>
+<td>腺管形成型,微小乳頭癌</td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td>悪性</td>
+<td>悪性</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td>ng1(2+1)</td>
+<td>Nuclear grade 1</td>
+<td>ng1(2+1)</td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td>24mm</td>
+<td>2.6cm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>T2N0M0 (stageⅡA)</td>
+<td>pT2</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>v0</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>ly0</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td>全て陰性(乳頭側のみ“鑑別困難”)</td>
+<td>negative</td>
+<td>陰性</td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td>SLN:0/3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>強調表示:</strong></p>
+<ul>
+<li><strong>腫瘍の大きさ:</strong>
+臨床情報(24mm)と診断欄(2.6cm)で単位が異なるため、<strong>強調</strong>。</li>
+<li><strong>悪性度:</strong> 臨床情報(ng1(2+1))と診断欄(Nuclear grade
+1)で表現が異なるため、<strong>強調</strong>。</li>
+<li><strong>静脈侵襲(v):</strong>
+臨床情報に記載なし、診断欄ではv0と記載されているため、<strong>強調</strong>。</li>
+<li><strong>リンパ管侵襲(ly):</strong>
+臨床情報に記載なし、診断欄ではly0と記載されているため、<strong>強調</strong>。</li>
+<li><strong>組織型:</strong>
+臨床情報では複数の組織型が記載されているが、診断欄ではInvasive
+micropapillary
+carcinomaと記載されているため、<strong>強調</strong>。</li>
+<li><strong>切除断端:</strong>
+臨床情報では乳頭側のみ鑑別困難と記載されているが、診断欄ではnegativeと記載されているため、<strong>強調</strong>。</li>
+<li><strong>Ki67:</strong>
+臨床情報では18%、診断欄では30%と記載されているため、<strong>強調</strong>。</li>
+</ul>
+<h2 id="まとめgemma312b-17">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-3</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 104.973秒</li>
+<li>トークン数: 154 tokens</li>
+<li>1秒あたりのトークン数: 1.467 tok/sec</li>
+</ul>
+<h1 id="kadai-4-4">kadai-4-4</h1>
+<h2 id="システムプロンプト-目次に戻る-18">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-18">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>原発不明腺癌癌性心膜炎　ドレナージ後　心嚢液細胞診で腺癌検出しています。縦隔肺門リンパ節腫大認めEBUS-TBNA施行しています。悪性所見の有無精査お願いします。組織型の判定お願いします。コンパニオン保留です。主治医は　腫瘍内科尾崎医師です。</code></pre>
+<p>#診断欄</p>
+<pre><code>Lymph node , EBUS-TBNA : Adenocarcinoma</code></pre>
+<p>#所見欄</p>
+<pre><code>縦隔肺門リンパ節のEBUS-TBNA検体です。
+血液やリンパ組織に混じって、クロマチン増量した腫大類円形核を有する異型細胞の小集簇像が多数出現しています。
+細胞質内小腺腔や核の偏在が見られ、腺癌を疑う所見です。
+
+
+－－－
+以下のコンパニオンをオーダーしました。
+■ 肺癌項目セット（肺癌学会データベース事業への同意なし）
+■ PD-L1蛋白 (22C3)
+腫瘍細胞割合：35％
+</code></pre>
+<h2 id="レスポンスgemma312b-18">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-3">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>心膜、縦隔肺門リンパ節</td>
+<td>リンパ節</td>
+<td>リンパ節</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>ドレナージ (心嚢液ドレナージ)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>原発不明腺癌</td>
+<td>Adenocarcinoma</td>
+<td>腺癌 (疑い)</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td>判定待ち</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td></td>
+<td>疑い</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td>縦隔肺門リンパ節腫大</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>強調表示について:</strong></p>
+<ul>
+<li><strong>対象臓器:</strong>
+臨床情報では心膜も記載されているが、診断欄と所見欄ではリンパ節のみ記載されている。</li>
+<li><strong>診断名:</strong>
+臨床情報では「原発不明腺癌」と記載されているが、診断欄では「Adenocarcinoma」と簡略化されている。</li>
+<li><strong>組織型:</strong>
+臨床情報では組織型の判定を求めているが、診断欄と所見欄では組織型に関する記載はない。</li>
+<li><strong>良悪性:</strong>
+臨床情報では悪性であると示唆されているが、診断欄と所見欄では明示されていない。</li>
+<li><strong>PD-L1蛋白:</strong>
+所見欄に記載されているが、臨床情報と診断欄には記載がない。</li>
+</ul>
+<h2 id="まとめgemma312b-18">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-4</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 64.150秒</li>
+<li>トークン数: 120 tokens</li>
+<li>1秒あたりのトークン数: 1.871 tok/sec</li>
+</ul>
+<h1 id="kadai-4-5">kadai-4-5</h1>
+<h2 id="システムプロンプト-目次に戻る-19">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-19">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>左下葉S6にpart solid GGO(全体径4.2cm、充実成分径1.3cm)、9/17気管支鏡では細胞診class3までで確定せず。他培養、PCRなど有意所見なし。臨床的には高分化腺癌疑いでcT1bN0M0 stageIA2と評価。11/6胸腔鏡下左下葉切除術施行、術中穿刺でclassV 腺癌でした。病理学的評価お願いいたします。【肺癌手術記載】LL(S6) 2.5x2.5x2.0cm PL0/D0/E0/PLC-pre(-)/PM0/N0/ND2a1/R0/Plq0/ sT1cN0M0/stageIA3【標本】左下葉　#5 #7 #10 #11 #12u #12l</code></pre>
+<p>#診断欄</p>
+<pre><code>1) Left lung, lower lobe, lobectomy: Papillary adenocarcinoma
+- tumor size 3.7㎝/invasive size &lt;0.5cm, pT1a, pl0, Ly0, V0, br(-)
+2) Lymph node: [pN0]</code></pre>
+<p>#所見欄</p>
+<pre><code>1)
+置換性進展を主体とする腺癌を認めます。ごく一部に無茎性乳頭状構造を認めます。
+有意な臓側胸膜浸潤、静脈侵襲を認めません。
+断端陰性です。
+
+2) リンパ節: 0/11
+#5(0/3), #7(0/2), #10(0/1), #11(0/2), #12u(0/1), #12l(0/2)
+</code></pre>
+<h2 id="レスポンスgemma312b-19">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-4">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>左下葉</td>
+<td>左肺下葉</td>
+<td>左肺下葉</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>胸腔鏡下左下葉切除術</td>
+<td>下葉切除術 (lobectomy)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>高分化腺癌疑い (術中穿刺で腺癌)</td>
+<td>乳頭状腺癌 (Papillary adenocarcinoma)</td>
+<td>腺癌 (腺癌)</td>
+<td><strong>臨床情報と診断欄で異なる。</strong></td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td></td>
+<td>乳頭状</td>
+<td>腺癌</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>疑い腺癌 (悪性)</td>
+<td>悪性</td>
+<td>悪性</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td>4.2cm (全体径), 1.3cm (充実成分)</td>
+<td>3.7cm</td>
+<td></td>
+<td><strong>臨床情報と診断欄で異なる。</strong></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>cT1bN0M0 stageIA2, sT1cN0M0/stageIA3</td>
+<td>pT1a</td>
+<td></td>
+<td><strong>臨床情報と診断欄で異なる。</strong></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>V0</td>
+<td>有意な静脈侵襲なし</td>
+<td><strong>臨床情報と診断欄で異なる。</strong></td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>Ly0</td>
+<td>リンパ管侵襲なし</td>
+<td><strong>診断欄と所見欄で異なる。</strong></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td>R0 (断端陰性)</td>
+<td></td>
+<td>断端陰性</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td>N0</td>
+<td>[pN0]</td>
+<td>0/11 (各標本番号付き)</td>
+<td><strong>臨床情報と診断欄で異なる。</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="まとめgemma312b-19">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-5</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 76.530秒</li>
+<li>トークン数: 151 tokens</li>
+<li>1秒あたりのトークン数: 1.973 tok/sec</li>
+</ul>
+<h1 id="kadai-4-6">kadai-4-6</h1>
+<h2 id="システムプロンプト-目次に戻る-20">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-20">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>腫瘍出血による貧血進行で診断された胃癌に対し、腹腔鏡下幽門側胃切除術施行。手術所見で横行結腸間膜への浸潤を疑う所見あり、合併切除。手術所見　LM、cT4a(SE)、cN(+)、cM0、cStageⅢ</code></pre>
+<p>#診断欄</p>
+<pre><code>1) Stomach distal gastrectomy: Adenocarcinoma, tub2, [pT3(SS)]
+ML, type 2, tumor size: 8×6cm, tub2, pT3(SS), INFb, Ly0, V1a(VB), pPM0(25mm), pDM0(80mm)
+2) Lymph node: [pN3a]</code></pre>
+<p>#所見欄</p>
+<pre><code>1)
+中分化管状腺癌を認めます。
+作製標本上、腫瘍浸潤は漿膜下脂肪織内にとどまっています。
+静脈侵襲像を認めます。
+有意なリンパ管を指摘できません。
+断端陰性です。
+
+2) リンパ節 (8/47)
+#1(0/2), #3(1/8), #4sb(0/4), #4d(7/16), #5(0/1), #6(0/5), #7(0/7), #8a(0/2), #9(0/1), #11p(0/0), #12a(0/1)</code></pre>
+<h2 id="レスポンスgemma312b-20">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-5">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>胃</td>
+<td>胃</td>
+<td>胃</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>腹腔鏡下幽門側胃切除術</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>胃癌</td>
+<td>胃腺癌</td>
+<td>中分化管状腺癌</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td></td>
+<td>tub2</td>
+<td>管状腺癌</td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td>悪性</td>
+<td>悪性</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td></td>
+<td>8×6cm</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>cT4a(SE), cN(+), cM0, cStageⅢ</td>
+<td>pT3(SS), pN3a</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>V1a(VB)</td>
+<td>静脈侵襲像を認める</td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>Ly0</td>
+<td>有意なリンパ管を指摘できません</td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td>断端陰性</td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td></td>
+<td>pN3a (詳細不明)</td>
+<td>8/47 (各リンパ節の詳細な情報あり)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注記:</strong></p>
+<ul>
+<li>cTNM分類は臨床病期、pTNM分類は病理病期を表します。</li>
+<li>リンパ節の数は、臨床情報では記載されていません。診断欄ではpN3aと記載されていますが、具体的なリンパ節の数や侵犯状況は不明です。所見欄では、作製標本上のリンパ節の数と各リンパ節の状況が詳細に記載されています。</li>
+<li>静脈侵襲とリンパ管侵襲については、臨床情報と診断欄、所見欄で記述が異なっています。</li>
+<li>悪性度は、臨床情報、診断欄、所見欄のいずれにも記載されていません。</li>
+</ul>
+<h2 id="まとめgemma312b-20">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-6</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 80.881秒</li>
+<li>トークン数: 131 tokens</li>
+<li>1秒あたりのトークン数: 1.620 tok/sec</li>
+</ul>
+<h1 id="kadai-4-7">kadai-4-7</h1>
+<h2 id="システムプロンプト-目次に戻る-21">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-21">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>直腸癌、S状結腸癌疑い病変に対して切除術を施行D3郭清（253.252.251.241）規約に則った精査をお願い申し上げます</code></pre>
+<p>#診断欄</p>
+<pre><code>Rectum, resection;
+ - Ra, Circ, Type 2, 55x65mm
+ - Adenocarcinoma(por&gt;&gt;tub2), pT4a(SE), INFc, Ly1c, V1c, Pn1a, pPM0(15cm), pDM1, pRM1, pN3(24/29)
+ - Other finding: tubular adenoma, low grade focally high grade</code></pre>
+<p>#所見欄</p>
+<pre><code>検体はＳ状結腸及び直腸です。
+口側21cm、肛門側3cm程度の部位に約6x7mm径の全周性の２型病変を見ます。
+組織学的には肉眼病変を超えて腫瘍が広がっています。
+腫瘍は明瞭な核小体と類円形核を有する異型立方状細胞がシート状、索状、胞巣状、小腺腔状に増殖しています。
+低分化腺癌（一部中分化管状腺癌）の像です。
+腫瘍は漿膜表面に浸潤しています。
+リンパ管侵襲・静脈侵襲を高度に認めます。
+壁内神経侵襲を認めます。
+口側切除断端は陰性ですが、肛門側断端〈標本2,3〉と外科切除面に腫瘍が露出しています。
+
+郭清リンパ節に腫瘍の転移を認めます。
+　No.253：2/3
+　No.252：8/8
+　No.251：10/11
+　No.251：4/7
+　Total：24/29
+
+Ｓ状結腸に認めるポリープ状病変は中等度の異型を示す管状腺腫です。
+一部に高異型度相当の成分を示す組織です。</code></pre>
+<h2 id="レスポンスgemma312b-21">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-6">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>直腸、S状結腸（疑い）</td>
+<td>直腸</td>
+<td>S状結腸、直腸</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>切除術、D3郭清</td>
+<td>resection</td>
+<td>切除術</td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>直腸癌、S状結腸癌疑い</td>
+<td>Adenocarcinoma</td>
+<td>低分化腺癌（一部中分化管状腺癌）</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td></td>
+<td>Type 2</td>
+<td>低分化腺癌（一部中分化管状腺癌）</td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td>悪性</td>
+<td>悪性</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td></td>
+<td>55x65mm</td>
+<td>約6x7mm (肉眼病変)</td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td></td>
+<td>pT4a(SE), pN3(24/29), pPM0(15cm), pDM1, pRM1</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>V1c</td>
+<td>高度に認めます</td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>Ly1c</td>
+<td>高度に認めます</td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td>Pn1a</td>
+<td>壁内神経侵襲を認めます</td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td>口側は陰性、肛門側断端と外科切除面に腫瘍露出</td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td></td>
+<td>24/29</td>
+<td>24/29 (詳細なリンパ節番号記載)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>強調表示箇所:</strong></p>
+<ul>
+<li><strong>対象臓器:</strong>
+臨床情報ではS状結腸癌疑いと記載されているが、所見欄ではS状結腸にポリープ状病変を認めており、診断名と異なる。</li>
+<li><strong>腫瘍の大きさ:</strong>
+臨床情報には記載なし。診断欄では55x65mmと記載されているが、所見欄では肉眼病変として約6x7mmと記載されており、<strong>数値に大きな乖離</strong>がある。</li>
+<li><strong>TNM分類:</strong>
+臨床情報には記載なし。診断欄では詳細なTNM分類が記載されている。</li>
+<li><strong>リンパ節の数:</strong>
+診断欄と所見欄ではリンパ節転移の割合は一致するが、所見欄ではリンパ節番号が詳細に記載されている。</li>
+<li><strong>切除断端:</strong>
+臨床情報には記載なし。診断欄には記載なし。所見欄では口側は陰性、肛門側断端と外科切除面に腫瘍露出と記載されている。</li>
+</ul>
+<h2 id="まとめgemma312b-21">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-7</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 102.853秒</li>
+<li>トークン数: 140 tokens</li>
+<li>1秒あたりのトークン数: 1.361 tok/sec</li>
+</ul>
+<h1 id="kadai-4-8">kadai-4-8</h1>
+<h2 id="システムプロンプト-目次に戻る-22">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-22">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>直腸癌に対し腹腔鏡下直腸切断術施行。Rb、sT2(MP)、sN0、sM0、sStageⅠ</code></pre>
+<p>#診断欄</p>
+<pre><code>Rectum, resection;
+ - Rb, Type 1, 25x25mm
+ - Adenocarcinoma(tub1&gt;tub2), pT1b(SM: 1100μm), INFb, Ly0, V1c, Pn1a, pPM0(23cm), pDM0(4cm), pN0(0/9)
+（病理にて免疫組織化学・オーダー）</code></pre>
+<p>#所見欄</p>
+<pre><code>直腸切断術検体です。
+口側23cm、肛門側4cm程度の部位に約25x25mm径の１型病変を見ます。
+組織学的には肉眼病変にほぼ一致して腫瘍を認めます。
+明瞭な核小体と類円形核を有する異型円柱状細胞が篩状、一部癒合腺腔状に増殖しています。
+浸潤の深さを確認するため免疫染色しましたが、粘膜下層までの浸潤にとどまっています（粘膜筋板から1,100μm：標本3）。
+明らかなリンパ管侵襲は見出せません。
+静脈侵襲を高度に認めます。
+壁内神経侵襲を認めます。
+切除断端は陰性です。
+
+郭清リンパ節に腫瘍の転移を認めません。
+　No.251：0/7
+　No.252：0/2
+　No.253：0/0
+　Total：0/9</code></pre>
+<h2 id="レスポンスgemma312b-22">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-7">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>直腸</td>
+<td>直腸</td>
+<td>直腸</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>腹腔鏡下直腸切断術</td>
+<td>resection</td>
+<td>直腸切断術検体</td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>直腸癌</td>
+<td>Adenocarcinoma</td>
+<td>Adenocarcinoma</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td></td>
+<td>Type 1</td>
+<td>Type 1</td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td>悪性</td>
+<td>悪性</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td></td>
+<td>25x25mm</td>
+<td>約25x25mm</td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>sT2(MP), sN0, sM0, sStageⅠ</td>
+<td>pT1b(SM: 1100μm), pN0(0/9), pM0</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td>V1c</td>
+<td>高度に認めます</td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td>Ly0</td>
+<td>明らかなリンパ管侵襲は見出せません</td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td>Pn1a</td>
+<td>壁内神経侵襲を認めます</td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td>陰性</td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td></td>
+<td>pN0(0/9)</td>
+<td>0/9, 0/2, 0/0 (Total: 0/9)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注記:</strong></p>
+<ul>
+<li>s は手術前病変、p は病理診断後の病変を表します。</li>
+<li>腫瘍の大きさは、所見欄と診断欄で若干の差異があります。</li>
+<li>静脈侵襲、リンパ管侵襲、神経侵襲については、臨床情報と診断欄、所見欄で記述が異なっています。</li>
+<li>悪性度は、臨床情報に記載されていません。</li>
+<li>TNM分類は、臨床情報と診断欄で記載されている情報が異なります。</li>
+<li>リンパ節の数は、所見欄で郭清リンパ節の数と転移の有無が記載されています。</li>
+</ul>
+<h2 id="まとめgemma312b-22">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-8</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 84.018秒</li>
+<li>トークン数: 148 tokens</li>
+<li>1秒あたりのトークン数: 1.762 tok/sec</li>
+</ul>
+<h1 id="kadai-4-9">kadai-4-9</h1>
+<h2 id="システムプロンプト-目次に戻る-23">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-23">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>右下葉肺癌(SqCC pT2aN0M0 stageIB)で2016/9/12 VATS右下葉切除後、残存右上葉が荒蕪化、慢性感染疑い2022/1MAC抗体陽性、喀痰抗酸菌陰性、2024/9βDグルカン陰性、2024/11ELISPOT陰性2024/9右上葉浸潤影・気管支拡張増悪、空洞影も出現、抗生剤不良で、荒蕪肺への真菌、抗酸菌などの感染疑いみぎB2で生検・ブラシ洗浄しました。悪性所見の有無について病理学的評価をお願いします。</code></pre>
+<p>#診断欄</p>
+<pre><code>Bronchus, rt. B2, biopsy: Inflammatory lesion with necrotic change</code></pre>
+<p>#所見欄</p>
+<pre><code>壊死を伴う炎症性組織が採取されています。採取標本中にはviableな腫瘍細胞を含んでいませんが、腫瘍の辺縁が採取されている可能性は否定できません。
+
+PAS、Grocott、チール・ネルゼン、トラント染色をおこないましたが、明らかな病原体は見出せませんでした。</code></pre>
+<h2 id="レスポンスgemma312b-23">レスポンス–gemma3:12b：</h2>
+<h2 id="臨床情報診断欄所見欄-比較表-8">臨床情報、診断欄、所見欄
+比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>右下葉、右上葉</td>
+<td>気管支 (右B2)</td>
+<td>右上葉 (生検部位)</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td>VATS右下葉切除</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>右下葉肺癌(SqCC)</td>
+<td>炎症性病変 (壊死を伴う)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td>SqCC (扁平上皮癌)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性</td>
+<td></td>
+<td>腫瘍細胞はviableではない (辺縁の可能性は否定できない)</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td>pT2aN0M0 stageIB</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>強調表示の理由:</strong></p>
+<ul>
+<li><strong>対象臓器:</strong>
+臨床情報では右下葉と右上葉が記載されているのに対し、診断欄は気管支(右B2)、所見欄は右上葉(生検部位)と、記載が異なります。</li>
+<li><strong>診断名:</strong>
+臨床情報では右下葉肺癌(SqCC)と記載されているのに対し、診断欄では炎症性病変と記載されています。</li>
+<li><strong>良悪性:</strong>
+臨床情報では悪性と記載されているのに対し、所見欄ではviableな腫瘍細胞を含んでいないと記載されています。</li>
+<li><strong>組織型:</strong>
+臨床情報ではSqCCと記載されているのに対し、診断欄と所見欄では組織型に関する記載がありません。</li>
+</ul>
+<h2 id="まとめgemma312b-23">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-9</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 67.565秒</li>
+<li>トークン数: 120 tokens</li>
+<li>1秒あたりのトークン数: 1.776 tok/sec</li>
+</ul>
+<h1 id="kadai-4-10">kadai-4-10</h1>
+<h2 id="システムプロンプト-目次に戻る-24">システムプロンプト： <a
+href="#目次">目次に戻る</a></h2>
+<p>3つの文章が与えられます。それらは、’臨床情報’と’診断欄’と’所見欄’です。
+’臨床情報’と’診断欄’と’所見欄’のそれぞれで、下記の項目を比較してください。
+基本的には、明示されているものをピックアップしてください。
+表形式で出力してください。 記載がない項目は、空欄にしてください。
+３つの情報のうち、齟齬があるものについては、強調表示にしてください。</p>
+<p>比較項目: - 対象臓器 - 切除方法 - 診断名 - 組織型 - 良悪性 -
+悪性度(benign, low, intermediate, high) - 腫瘍の大きさ - TNM分類 -
+静脈侵襲(v) - リンパ管侵襲(ly) - 神経侵襲(pn) - 切除断端 -
+リンパ節の数</p>
+<h2 id="ユーザプロンプト-24">ユーザプロンプト：</h2>
+<p>#臨床情報</p>
+<pre><code>心窩部不快感で胃カメラ。十二指腸下行脚内側乳頭少し口側に2型腫瘍、生検はs/o腺癌。CTでは同部位接する3㎝の腫瘤あり、s/o膵癌。多発肝転移あり生検は病理検査中。超音波内視鏡造影では、多血性腫瘍で早期濃染ああり、NETやGIST疑い。22G針にて腫瘤から生検施行。十二指腸癌？NET？　膵癌？その他？ボトルが2個有りますが、同一部位の生検です。</code></pre>
+<p>#診断欄</p>
+<pre><code>Pancreas, FNA; Adenocarcinoma
+（病理にて免疫組織化学・オーダー）</code></pre>
+<p>#所見欄</p>
+<pre><code>提出された検体は、膵FNA。
+
+腫瘍組織、壊死組織、凝血塊などが採取されています。
+腫大した類円形～卵円形核と好酸性細胞質を有する立方状～円柱状細胞が、管状・癒合腺管状・乳頭状に増殖しています。腺癌の像です。
+免疫染色では、CK AE1/AE3(+)、CK7(+)、CK20(-)、CDX-2(partial/weak+)、SATB2(partial+)、MUC1(+)、MUC2(few+)、CA19-9(partial+)、NKX3.1(-)、CD10(-)、Synaptophysin(-)、Chromogranin A(-)、CD56(-)、Ki67(50%)でした。
+
+十二指腸生検で認めた異型細胞と同じ染色動態を示しています。
+病理標本のみでは、原発巣を断定出来ません。全体像での評価が臨まれます。</code></pre>
+<h2 id="レスポンスgemma312b-24">レスポンス–gemma3:12b：</h2>
+<h2 id="比較表">比較表</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>臨床情報</th>
+<th>診断欄</th>
+<th>所見欄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>対象臓器</strong></td>
+<td>胃、十二指腸、膵臓</td>
+<td>膵臓</td>
+<td>膵臓</td>
+</tr>
+<tr>
+<td><strong>切除方法</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>診断名</strong></td>
+<td>十二指腸癌？膵癌？NET？その他？</td>
+<td>Adenocarcinoma</td>
+<td>Adenocarcinoma</td>
+</tr>
+<tr>
+<td><strong>組織型</strong></td>
+<td>腺癌 (s/o)</td>
+<td></td>
+<td>腺癌</td>
+</tr>
+<tr>
+<td><strong>良悪性</strong></td>
+<td>悪性（膵癌の疑い）</td>
+<td>悪性</td>
+<td>悪性</td>
+</tr>
+<tr>
+<td><strong>悪性度</strong></td>
+<td></td>
+<td></td>
+<td>Ki67 50% (増殖能が高いことを示唆)</td>
+</tr>
+<tr>
+<td><strong>腫瘍の大きさ</strong></td>
+<td>3㎝</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TNM分類</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>静脈侵襲(v)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ管侵襲(ly)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>神経侵襲(pn)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>切除断端</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>リンパ節の数</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>強調表示箇所:</strong></p>
+<ul>
+<li><strong>対象臓器:</strong>
+臨床情報では胃、十二指腸、膵臓と記載されているが、診断欄と所見欄では膵臓のみ。</li>
+<li><strong>診断名:</strong>
+臨床情報では複数の可能性が挙げられているが、診断欄ではAdenocarcinomaと確定診断されている。</li>
+<li><strong>組織型:</strong>
+臨床情報では腺癌と記載されているが、所見欄では腺癌の像と詳細な記載がある。</li>
+<li><strong>悪性度:</strong>
+臨床情報では記載がないが、所見欄ではKi67の割合から悪性度が高い可能性が示唆されている。</li>
+<li><strong>原発巣:</strong>
+所見欄では病理標本のみでは原発巣を断定できないと記載されている。</li>
+</ul>
+<h2 id="まとめgemma312b-24">まとめ–gemma3:12b</h2>
+<ul>
+<li>課題名：kadai-4-10</li>
+<li>モデル名：gemma3:12b</li>
+<li>処理時間: 73.414秒</li>
+<li>トークン数: 122 tokens</li>
+<li>1秒あたりのトークン数: 1.662 tok/sec</li>
+</ul>
+  </div>
+</body>
+</html>
