@@ -12,7 +12,7 @@
 
 ## 課題検討結果
 
-PC(GPUなし)とMac(GPUあり)とに有意な差を感じなかったので、Mac(GPUあり)のものを掲載します。
+`PC(GPUなし)`と`Mac(GPUあり)`とに有意な差を感じなかったので、`Mac(GPUあり)`のものを掲載します。
 
 LLM名のファイルに、課題１から課題４までの結果が収載されています。
 
@@ -20,7 +20,7 @@ LLM名のファイルに、課題１から課題４までの結果が収載さ�
 - [Gemma3:1B](result-gemma3_1b-mac.html)
 - [Gemma3:4B](result-gemma3_4b-mac.html)
 - [Gemma3:12B](result-gemma3_12b-mac.html)
-- [Llama3-ELYZA:8B](result-llama3-elyza_8b-mac.html)
+- [Llama3-ELYZA-JP-8B](result-llama3-elyza_8b-mac.html)
 - [Phi-4:14B](result-phi4_14b-mac.html)
 
 
