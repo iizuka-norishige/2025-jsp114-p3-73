@@ -14,6 +14,7 @@
 
 PC(GPUなし)とMac(GPUあり)とに有意な差を感じなかったので、Mac(GPUあり)のものを掲載する。
 
+- [目次](result-index.html)
 - [Gemma3:1B](result-gemma3_1b-mac.html)
 - [Gemma3:4B](result-gemma3_4b-mac.html)
 - [Gemma3:12B](result-gemma3_12b-mac.html)
