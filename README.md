@@ -27,7 +27,7 @@ Python ライブラリの `ollama` が必要です。
 
 # Minimal Example
 ```
-python perform-kadai.py -m 'LLM model' -s 'System Prompt File' 'User Prompt File'
+python perform-kadai.py -m 'LLM_model' -s 'System_Prompt_File' 'User_Prompt_File'
 ```
 
 # Contributors
