@@ -12,7 +12,8 @@
 
 ## 課題検討結果
 
-PC(GPUなし)とMac(GPUあり)とに有意な差を感じなかったので、Mac(GPUあり)のものを掲載する。
+PC(GPUなし)とMac(GPUあり)とに有意な差を感じなかったので、Mac(GPUあり)のものを掲載します。
+LLM名のファイルに、課題１から課題４までの結果が収載されています。
 
 - [目次](result-index.html)
 - [Gemma3:1B](result-gemma3_1b-mac.html)
