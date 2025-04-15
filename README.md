@@ -16,13 +16,7 @@
 
 LLM名のファイルに、課題１から課題４までの結果が収載されています。
 
-- [目次](result-index.html)
-- [Gemma3:1B](result-gemma3_1b-mac.html)
-- [Gemma3:4B](result-gemma3_4b-mac.html)
-- [Gemma3:12B](result-gemma3_12b-mac.html)
-- [Llama3-ELYZA-JP-8B](result-llama3-elyza_8b-mac.html)
-- [Phi-4:14B](result-phi4_14b-mac.html)
-
+[**こちらのページ**](https://iizuka-norishige.github.io/2025-jsp114-p3-73/result-index.html)からどうぞ。
 
 
 <!-- # Badges -->
